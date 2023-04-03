@@ -52,7 +52,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputRut">Rut</label>
                                       <input class="form-control" id="inputRut" type="text" required name="rut" placeholder="Ingrese rut aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                      <div class="valid-feedback">¡Luce muy  bien!</div>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
