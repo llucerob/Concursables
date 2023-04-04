@@ -5,7 +5,7 @@
 @section('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/vendors/prism.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/vendors/summernote.css')}}">
+ 
 @endsection
 
 @section('style')
@@ -27,6 +27,7 @@
                         </div>
                         <div class="card-body">
                             <form action="{{route('sube.form')}}" method="post" enctype="multipart/form-data">
+                                @csrf
                             <div class="row g-3">
 
                                 <h4>Presentación</h4>
@@ -99,7 +100,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                       <label class="form-label" for="descripcionproyecto">Descripción del Proyecto</label>
-                                      <textarea name="descripcionproyecto" id="descripcionproyecto" rows="4" cols="50"></textarea>
+                                      <textarea name="descripcionproyecto" id="descripcionproyecto" rows="12" cols="100"></textarea>
                                       <div class="valid-feedback">¡Luce bien!</div>
                                     </div>
                                 </div>
@@ -107,7 +108,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                       <label class="form-label" for="identificacion">Identificacion de la necesidad</label>
-                                      <textarea name="identificacion" id="identificacion" rows="4"  cols="50"></textarea>
+                                      <textarea name="identificacion" id="identificacion" rows="12"  cols="100"></textarea>
                                       <div class="valid-feedback">¡Luce bien!</div>
                                     </div>
                                 </div>
@@ -170,9 +171,9 @@
                                         
                                         <tbody>
                                             <tr>
-                                                <td><input class="form-control" name=gastos[cantidad][0]></td>
-                                                <td><input class="form-control" name=gastos[descripcion][0]></td>
-                                                <td><input class="form-control monto" name=gastos[monto][0] onkeyup="sumar();"></td>
+                                                <td><input class="form-control" name="gastos[0][cantidad]"></td>
+                                                <td><input class="form-control" name="gastos[0][descripcion]"></td>
+                                                <td><input class="form-control monto" name="gastos[0][monto]" onkeyup="sumar();"></td>
                                             </tr>
 
     
@@ -224,7 +225,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Fotocopia del acta de la Asamblea, conforme al articulo Nº6 del Reglamento</label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="fotocopiaacta">
                                         </div>
                                       </div>
 
@@ -233,7 +234,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Fotocopia del rut de la Organización</label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="fotocopiarut">
                                         </div>
                                       </div>
 
@@ -242,7 +243,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Certificado de personalidad Juridica y directiva vigente, de la organización postulante</label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="certificadopersonalidadjur">
                                         </div>
                                       </div>
 
@@ -251,7 +252,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Certificado de inscripción, en el registro de transferencias publicas www.registros19862.cl </label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="certificadoinscripcion">
                                         </div>
                                       </div>
 
@@ -260,7 +261,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Certificado, que acredite que la junta de vecinos u Organización, no posee deudas pendientes con el Municipio. </label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="certificadojunta">
                                         </div>
                                       </div>
 
@@ -269,7 +270,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Fotocopia cuenta bancaria o cartola bancaria a nombre de la Organización</label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="fotocopiacuenta">
                                         </div>
                                       </div>
 
@@ -278,7 +279,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">En el caso de proyectos de infraestructura, se deberán presentar todos los antecedentes indicados en los requisitos específicos o factibilidades que se requieran</label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="antecedentes">
                                         </div>
                                       </div>
 
@@ -287,7 +288,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Antecedentes técnicos, Financieros, Planimétricos y Cotizaciones del proyecto.</label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="antecedentestecnicos">
                                         </div>
                                       </div>
 
@@ -296,7 +297,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Dominio vigente de la propiedad y/o comodato (solo para proyectos de infraestructura).</label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="dominiovigente">
                                         </div>
                                       </div>
 
@@ -305,7 +306,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Registro Fotográfico, si corresponde, del area de intervencion del proyecto.</label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="registrofotografico">
                                         </div>
                                       </div>
 
@@ -314,7 +315,7 @@
                                     <div class="mb-3 row">
                                         <label class="col-sm-3 col-form-label">Otros antecedentes (si existe)</label>
                                         <div class="col-sm-9">
-                                          <input class="form-control" type="file">
+                                          <input class="form-control" type="file" name="otrosantecedentes">
                                         </div>
                                       </div>
 
@@ -443,24 +444,12 @@
 
 @section('script')
 <script src="{{ asset('assets/js/jquery.ui.min.js') }}"></script>
-<script src="{{ asset('assets/js/editor/summernote/summernote.js') }}"></script>
 
-<script>
-    $(document).ready(function() {
-        $('#descripcionproyecto').summernote({
-            height: 200
-        });
-
-        $('#identificacion').summernote({
-            height: 200
-        });
-    });
-</script>
 <script>
      var i =1;
     const agregarFila = () => {
            
-            document.getElementById('tabla').insertRow(-1).innerHTML = '<td><input class="form-control" name=gastos[cantidad]['+i+']></td><td><input class="form-control" name=gastos[descripcion]['+i+']></td><td><input class="form-control monto" name=gastos[monto]['+i+'] onkeyup="sumar();"></td>'
+            document.getElementById('tabla').insertRow(-1).innerHTML = '<td><input class="form-control" name=gastos['+i+'][cantidad]></td><td><input class="form-control" name=gastos['+i+'][descripcion]></td><td><input class="form-control monto" name=gastos['+i+'][monto] onkeyup="sumar();"></td>'
             i++;
         }
 
