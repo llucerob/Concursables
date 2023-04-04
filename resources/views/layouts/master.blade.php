@@ -30,7 +30,7 @@
       <!-- Page Body Start-->
       <div class="page-body m-4">
         <div class="d-flex justify-content-center">
-          <img src="{{asset('assets/images/logo/logom.png')}}" width="400px" alt="">
+          <img src="{{asset('assets/images/logo/logom.png')}}"  class="img-fluid" max-width="20%" alt="">
         </div>
 
         

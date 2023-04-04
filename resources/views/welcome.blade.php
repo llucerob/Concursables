@@ -26,7 +26,7 @@
                         <h3>Ficha presentación a proyecto FONDEVE O SUBVENCION </h3>
                         </div>
                         <div class="card-body">
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{route('sube.form')}}" method="post" enctype="multipart/form-data">
                             <div class="row g-3">
 
                                 <h4>Presentación</h4>
@@ -222,7 +222,97 @@
                                
                                 <div class="col-md-6">
                                     <div class="mb-3 row">
-                                        <label class="col-sm-3 col-form-label">Adjuntar todos los documentos en un solo archivo comprimido</label>
+                                        <label class="col-sm-3 col-form-label">Fotocopia del acta de la Asamblea, conforme al articulo Nº6 del Reglamento</label>
+                                        <div class="col-sm-9">
+                                          <input class="form-control" type="file">
+                                        </div>
+                                      </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Fotocopia del rut de la Organización</label>
+                                        <div class="col-sm-9">
+                                          <input class="form-control" type="file">
+                                        </div>
+                                      </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Certificado de personalidad Juridica y directiva vigente, de la organización postulante</label>
+                                        <div class="col-sm-9">
+                                          <input class="form-control" type="file">
+                                        </div>
+                                      </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Certificado de inscripción, en el registro de transferencias publicas www.registros19862.cl </label>
+                                        <div class="col-sm-9">
+                                          <input class="form-control" type="file">
+                                        </div>
+                                      </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Certificado, que acredite que la junta de vecinos u Organización, no posee deudas pendientes con el Municipio. </label>
+                                        <div class="col-sm-9">
+                                          <input class="form-control" type="file">
+                                        </div>
+                                      </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Fotocopia cuenta bancaria o cartola bancaria a nombre de la Organización</label>
+                                        <div class="col-sm-9">
+                                          <input class="form-control" type="file">
+                                        </div>
+                                      </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">En el caso de proyectos de infraestructura, se deberán presentar todos los antecedentes indicados en los requisitos específicos o factibilidades que se requieran</label>
+                                        <div class="col-sm-9">
+                                          <input class="form-control" type="file">
+                                        </div>
+                                      </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Antecedentes técnicos, Financieros, Planimétricos y Cotizaciones del proyecto.</label>
+                                        <div class="col-sm-9">
+                                          <input class="form-control" type="file">
+                                        </div>
+                                      </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Dominio vigente de la propiedad y/o comodato (solo para proyectos de infraestructura).</label>
+                                        <div class="col-sm-9">
+                                          <input class="form-control" type="file">
+                                        </div>
+                                      </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Registro Fotográfico, si corresponde, del area de intervencion del proyecto.</label>
+                                        <div class="col-sm-9">
+                                          <input class="form-control" type="file">
+                                        </div>
+                                      </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3 row">
+                                        <label class="col-sm-3 col-form-label">Otros antecedentes (si existe)</label>
                                         <div class="col-sm-9">
                                           <input class="form-control" type="file">
                                         </div>

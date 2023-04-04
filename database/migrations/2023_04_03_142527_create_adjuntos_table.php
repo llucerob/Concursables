@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('adjuntos', function (Blueprint $table) {
             $table->id();
 
-            $table->foreingId('presentacion_id')->constrained('presentaciones')->onDelete('cascade');
+            $table->foreignId('presentacion_id')->constrained('presentaciones')->onDelete('cascade');
             $table->string('concepto');
             $table->string('ruta');
             
