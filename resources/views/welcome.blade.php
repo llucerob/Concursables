@@ -24,9 +24,11 @@
                         <div class="card-header text-center">
                             
                         <h3>Ficha presentación a proyecto FONDEVE O SUBVENCION </h3>
+
+                        <p><span>Las bases del proyecto pueden ser descargadas en el siguiente enlace</span> <a href="{{asset('assets/reglamento_subvencion_fondeve_2023.pdf')}}"><i class="fa fa-2x fa-file-pdf-o"></i></a></p>
                         </div>
                         <div class="card-body">
-                            <form action="{{route('sube.form')}}" method="post" enctype="multipart/form-data">
+                            <form class="needs-validation theme-form" novalidate="" action="{{route('sube.form')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                             <div class="row g-3">
 
@@ -37,7 +39,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputNombreproyecto">Denominación del Proyecto</label>
                                       <input class="form-control" id="inputNombreproyecto" type="text" required name="nombreproyecto" placeholder="Ingrese nombre aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                      
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -45,7 +47,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputOrganizacion">Organización Solicitante</label>
                                       <input class="form-control" id="inputOrganizacion" type="text" required name="nombreorganizacion" placeholder="Ingrese organizacion aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                      
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -53,7 +55,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputRut">Rut</label>
                                       <input class="form-control" id="inputRut" type="text" required name="rut" placeholder="Ingrese rut aquí">
-                                      <div class="valid-feedback">¡Luce muy  bien!</div>
+                                      
                                     </div>
                                 </div>
                                 <div class="col-md-5">
@@ -67,7 +69,7 @@
                                           
                                         
                                       </select>
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                     
                                     </div>
                                   </div>
 
@@ -87,7 +89,7 @@
                                           
                                         
                                       </select>
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                      
                                     </div>
                                   </div>
                                   
@@ -101,7 +103,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="descripcionproyecto">Descripción del Proyecto</label>
                                       <textarea name="descripcionproyecto" id="descripcionproyecto" rows="12" cols="100"></textarea>
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                 
                                     </div>
                                 </div>
 
@@ -109,7 +111,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="identificacion">Identificacion de la necesidad</label>
                                       <textarea name="identificacion" id="identificacion" rows="12"  cols="100"></textarea>
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                    
                                     </div>
                                 </div>
 
@@ -125,7 +127,7 @@
                                       <label class="form-label" for="ubicacionGeografica">Ubicación Especifica</label>
                                       <input name="direccion" class="form-control" type="text" id="ubicacionGeografica" >
                                       
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                     
                                     </div>
                                 </div>
 
@@ -133,21 +135,21 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="unidadvecinal">Unidad Vecinal o Localidad</label>
                                       <input name="unidadvecinal" class="form-control" type="text" id="unidadvecinal" >
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                      
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label" for="Propiedaddelterreno">Propiedad del Terreno</label>
                                       <input name="propiedad" class="form-control" type="text" id="Propiedaddelterreno">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                   
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="mb-3">
                                       <label class="form-label" for="Poblacion">Población directa beneficiada del terreno</label>
                                       <input name="poblaciondirecta" class="form-control" type="number" id="Poblacion">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                     
                                     </div>
                                 </div>
 
@@ -160,16 +162,16 @@
                                 <hr>
 
                                 <div class="col-md-6">
-                                    <table class="table" id="tabla">
+                                    <table class="table" >
                                         <thead>
                                             <tr>
                                                 <th>Cantidad</th>
-                                                <th>Desccripción</th>
-                                                <th>Montos</th>
+                                                <th>Descripción</th>
+                                                <th>Monto Total </th>
                                             </tr>
                                         </thead>
                                         
-                                        <tbody>
+                                        <tbody id="tabla">
                                             <tr>
                                                 <td><input class="form-control" name="gastos[0][cantidad]"></td>
                                                 <td><input class="form-control" name="gastos[0][descripcion]"></td>
@@ -178,9 +180,26 @@
 
     
                                         </tbody>
-                                    </table>
 
-                                    <button type="button" class="btn btn-primary mt-3 left" onclick="agregarFila();">Agregar Fila</button>
+                                        <tfoot>
+                                          <tr>
+                                            <th></th>
+                                            <th><label class="col-sm-10 col-form-label" >Costo Total</label></th>
+                                            <th><label class="col-sm-10 col-form-label" id="gastototal"></label></th>
+                                          </tr>
+                                        </tfoot>
+                                        
+                                            
+                                         
+                                    </table>
+                                    
+                                    
+                                      <button type="button" class="btn btn-primary mt-3 left" onclick="agregarFila();">Agregar Fila</button>
+                                      
+                                     
+                                     
+                                    
+
 
                                 </div>
 
@@ -190,16 +209,16 @@
                                         <tbody>
                                             <tr>
                                                 <td>Aporte Municipal</td>
-                                                <td><input type="number" class="form-control" name="aportemuni" ></td>
+                                                <td><input type="number" class="form-control monto2" name="aportemuni" onkeyup="suma2();" ></td>
                                             </tr>
                                             <tr>
-                                                <td>Aporte Organización</td>
-                                                <td><input type="number" name="aporteong" class="form-control"></td>
+                                                <td width="30%">Aporte Organización <br><span class="text-danger">Minimo 10% gasto total proyecto</span></td>
+                                                <td><input type="number" name="aporteong" class="form-control monto2" onkeyup="suma2();"></td>
 
                                             </tr>
                                             <tr>
                                                 <td>Costo total Proyecto</td>
-                                                <td><input type="number" name="costototal" id="costototal" class="form-control"></td>
+                                                <td><input type="number" name="costototal" id="totalproyecto" class="form-control"></td>
                                             </tr>
                                         </tbody>
 
@@ -218,7 +237,7 @@
 
                             <div class="row g-3 mt-4">
 
-                                <h4>Adjuntar la documentacion señalada emn el artículo Nº 10 Letra B</h4>
+                                <h4>Adjuntar la documentacion señalada en el artículo Nº 10 Letra B</h4>
                                 <hr>
                                
                                 <div class="col-md-6">
@@ -337,7 +356,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputnombrePresidente">Nombre y Apellidos Presidente</label>
                                       <input class="form-control" id="inputnombrePresidente" type="text" required name="nombrepresidente" placeholder="Ingrese nombre y apellidos aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                    
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -345,7 +364,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputtelefonoPresidente">Telefono Presidente</label>
                                       <input class="form-control" id="inputtelefonoPresidente" type="text" required name="telefonopresidente" placeholder="Ingrese Teléfono aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                            
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -353,7 +372,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputcorreoPresidente">Correo Presidente</label>
                                       <input class="form-control" id="inputcorreoPresidente" type="text" name="correopresidente" placeholder="Ingrese Correo aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                         
                                     </div>
                                 </div>
 
@@ -363,7 +382,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputnombreSecretario">Nombre y Apellidos Secretario</label>
                                       <input class="form-control" id="inputnombreSecretario" type="text" required name="nombresecretario" placeholder="Ingrese nombre y apellidos aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                          
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -371,7 +390,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputtelefonosecretario">Telefono Secretario</label>
                                       <input class="form-control" id="inputtelefonoSecretario" type="text" required name="telefonosecretario" placeholder="Ingrese Teléfono aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                    
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -379,7 +398,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputcorreoSeretario">Correo Secretario</label>
                                       <input class="form-control" id="inputcorreoSecretario" type="text"  name="correosecretario" placeholder="Ingrese Correo aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                    
                                     </div>
                                 </div>
 
@@ -389,7 +408,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputnombreTesorero">Nombre y Apellidos Tesorero</label>
                                       <input class="form-control" id="inputnombreTesorero" type="text" required name="nombretesorero" placeholder="Ingrese nombre y apellidos aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                                
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -397,7 +416,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputtelefonoTesorero">Telefono Tesorero</label>
                                       <input class="form-control" id="inputtelefonoTesorero" type="text" required name="telefonotesorero" placeholder="Ingrese Teléfono aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                     
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -405,7 +424,7 @@
                                     <div class="mb-3">
                                       <label class="form-label" for="inputcorreoTesorero">Correo Tesorero</label>
                                       <input class="form-control" id="inputcorreoTesorero" type="text" name="correotesorero" placeholder="Ingrese Correo aquí">
-                                      <div class="valid-feedback">¡Luce bien!</div>
+                              
                                     </div>
                                 </div>
 
@@ -444,6 +463,7 @@
 
 @section('script')
 <script src="{{ asset('assets/js/jquery.ui.min.js') }}"></script>
+<script src="{{ asset('assets/js/form-validation-custom.js')}}"></script>
 
 <script>
      var i =1;
@@ -485,10 +505,35 @@
         });
 
         console.log(total);
-        document.getElementById('costototal').value = total;
+        document.getElementById('gastototal').innerHTML = total;
 
     }
+    function suma2() {
+
+var total = 0;
+
+$(".monto2").each(function() {
+
+if (isNaN(parseFloat($(this).val()))) {
+
+total += 0;
+
+} else {
+
+total += parseFloat($(this).val());
+
+}
+
+});
+
+console.log(total);
+document.getElementById('totalproyecto').value = total;
+
+}
+
+   
 </script>
+
 
 
 @endsection
