@@ -35,12 +35,7 @@
         <li class="profile-nav onhover-dropdown pe-0 py-0">
           <div class="media profile-media"><img class="b-r-10" src="{{ asset('assets/images/dashboard/profile.png') }}" alt="">
             <div class="media-body"><span>{{Auth::user()->name}}</span>
-              <p class="mb-0 font-roboto"> @if(Auth::user()->hasRole('admin')) Administrador 
-                @elseif (Auth::user()->hasRole('social')) Social 
-                @elseif (Auth::user()->hasRole('bodega')) Bodega @endif
-               
-                
-                <i class="middle fa fa-angle-down"></i></p>
+             
             </div>
           </div>
           <ul class="profile-dropdown onhover-show-div">

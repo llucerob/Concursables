@@ -27,6 +27,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+    //datatables
+   
+    Route::get('datatable/proyectos', [FormController::class, 'ajaxproyectos'])->name('datatable.proyectos');
+
+    //pdf
+    Route::get('imprimir/{id}', [FormController::class, 'imprimir'])->name('imprimir', '{id}');
+
 });
 
 
